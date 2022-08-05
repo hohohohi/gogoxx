@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0">
+	<title>404</title>
+	<style type="text/css">
+		body{margin: 0;}
+		.wrap{display: flex;justify-content: center;}
+		.stage{position: relative;
+			width: 200px;
+			height: 200px;
+			margin-top: 200px;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-perspective: 3000px;
+			perspective: 3000px;
+			-webkit-transform: rotateX(-25deg) rotateY(45deg);
+			transform: rotateX(-25deg) rotateY(45deg);
+		}
+		.cube_wrap{position: absolute;top:0;left: 0;width: 200px;height: 200px;
+			-webkit-animation: cube_slide 2s linear infinite;
+			animation: cube_slide 2s linear infinite;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.cube{position: relative;width: 200px;height: 200px;
+			-webkit-transform-style: preserve-3d;;
+			transform-style: preserve-3d;;
+			-webkit-animation: cube_rotate 2s -2s cubic-bezier(0.3, 0.02, 0.91, 0.17) infinite;
+			animation: cube_rotate 2s -2s cubic-bezier(0.3, 0.02, 0.91, 0.17) infinite;
+			-webkit-transform-origin: 100% 100%;
+			transform-origin: 100% 100%;
+		}
+		.i_cube{box-sizing: border-box;position: absolute;top: 0;left: 0;width: 100%;height: 100%;border: 2px solid #fff;background-color: rgba(0, 0, 0, .5);
+			-webkit-transform: rotateX(calc(var(--i)*90deg));
+			transform: rotateX(calc(var(--i)*90deg));
+			-webkit-transform-origin: center center -100px;
+			transform-origin: center center -100px;
+		}
+		.i_cube:nth-child(5),.i_cube:nth-child(6){transform: rotateX(0) rotateY(calc(var(--i)*90deg));}
+		.i_cube:before{
+			content: "";
+			display: block;
+			font: bolder 100px/2 sans-serif;color: #fff;text-align: center;
+			-webkit-transform: rotateX(180deg);
+			transform: rotateX(180deg);
+		}
+		.i_cube:nth-child(1):before,.i_cube:nth-child(3):before{
+			-webkit-animation: f_z 4s linear infinite;
+			animation: f_z 4s linear infinite;
+		}
+		.i_cube:nth-child(2):before,.i_cube:nth-child(4):before{
+			-webkit-animation: z_f 4s linear infinite;
+			animation: z_f 4s linear infinite;
+		}
+		.bg_wrap{position: absolute;bottom: 0;right:0;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transform: rotateX(90deg);
+			transform: rotateX(90deg);
+			-webkit-transform-origin: 0 100%;
+			transform-origin: 0 100%;
+		}
+		.bg{width: 200px;height: 200px;
+			position: relative;
+		}
+		.i_bg{position: absolute;box-sizing: border-box;width: 100%;height: 200px;border: 2px solid #fff;background-color: rgba(0, 0, 0, .5);font: bolder 100px/2 sans-serif;color: #fff;text-align: center;
+			-webkit-animation: slide 20s -2s linear infinite;
+			animation: slide 20s -2s linear infinite;
+		}
+		.i_bg:nth-child(2){
+			-webkit-animation: slide 20s -4s linear infinite;
+			animation: slide 20s -4s linear infinite;
+		}
+		.i_bg:nth-child(3){
+			-webkit-animation: slide 20s -6s linear infinite;
+			animation: slide 20s -6s linear infinite;
+		}
+		.i_bg:nth-child(4){
+			-webkit-animation: slide 20s -8s linear infinite;
+			animation: slide 20s -8s linear infinite;
+		}
+		.i_bg:nth-child(5){
+			-webkit-animation: slide 20s -10s linear infinite;
+			animation: slide 20s -10s linear infinite;
+		}
+		.i_bg:nth-child(6){
+			-webkit-animation: slide 20s -12s linear infinite;
+			animation: slide 20s -12s linear infinite;
+		}
+		.i_bg:nth-child(7){
+			-webkit-animation: slide 20s -14s linear infinite;
+			animation: slide 20s -14s linear infinite;
+		}
+		.i_bg:nth-child(8){
+			-webkit-animation: slide 20s -16s linear infinite;
+			animation: slide 20s -16s linear infinite;
+		}
+		.i_bg:nth-child(9){
+			-webkit-animation: slide 20s -18s linear infinite;
+			animation: slide 20s -18s linear infinite;
+		}
+		.i_bg:nth-child(10){
+			-webkit-animation: slide 20s -20s linear infinite;
+			animation: slide 20s -20s linear infinite;
+		}
+		@keyframes cube_rotate{
+			0%{-webkit-transform: rotateX(0);transform: rotateX(0)}
+			3%{-webkit-transform: rotateX(0);transform: rotateX(0)}
+			90%{-webkit-transform: rotateX(-90deg);transform: rotateX(-90deg)}
+			95%{-webkit-transform: rotateX(-87deg);transform: rotateX(-87deg)}
+			100%{-webkit-transform: rotateX(-90deg);transform: rotateX(-90deg)}
+		}
+		@keyframes cube_move{
+			0%{left: 0;}
+			10%{left: 0;}
+			50%{left: 30px;}
+			60%{left: 30px;}
+			100%{left: 0px;}
+		}
+		@keyframes slide {
+			0%{-webkit-transform: translateY(0);transform: translateY(0);}
+			100%{-webkit-transform: translateY(-2000px);transform: translateY(-2000px);}
+		}
+		@keyframes cube_slide{
+			0%{-webkit-transform: translateZ(0);transform: translateZ(0);}
+			100%{-webkit-transform: translateZ(-200px);transform: translateZ(-200px);}
+		}
+		@keyframes z_f{
+			0%{content: "0";}
+			100%{content: "4";}
+		}
+		@keyframes f_z{
+			0%{content: "4";}
+			100%{content: "0";}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="stage">
+			<div class="cube_wrap">
+				<div class="cube">
+					<div class="i_cube" style="--i:0"></div>
+					<div class="i_cube" style="--i:1"></div>
+					<div class="i_cube" style="--i:2"></div>
+					<div class="i_cube" style="--i:3"></div>
+					<div class="i_cube" style="--i:1"></div>
+					<div class="i_cube" style="--i:-1"></div>
+				</div>
+			</div>
+			<div class="bg_wrap">
+				<div class="bg">
+					<div class="i_bg">4</div>
+					<div class="i_bg">0</div>
+					<div class="i_bg">4</div>
+					<div class="i_bg">0</div>
+					<div class="i_bg">4</div>
+					<div class="i_bg">0</div>
+					<div class="i_bg">4</div>
+					<div class="i_bg">0</div>
+					<div class="i_bg">4</div>
+					<div class="i_bg">0</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
